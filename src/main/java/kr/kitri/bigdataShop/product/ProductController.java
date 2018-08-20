@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ProductController {
+	
 	@RequestMapping("/product/list.do")
 	public String list(){
 		System.out.println("어노테이션 기반");

@@ -23,6 +23,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2"/>
 	</beans:bean>
 
 	<!-- =====================db관련 작업============================== -->
@@ -34,9 +35,33 @@
 	<beans:bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="ds" />
 	</beans:bean>
+	
+	<!-- ========================== mybatis연결 ========================== -->
+	<!-- spring과 mybatis를 연결해주는 클래스 -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="ds"/>
+		<beans:property name="configLocation" value="/WEB-INF/config/mybatis-config.xml"/>
+	</beans:bean>
+	
+	<!-- mybatis의 핵심클래스(spring jdbc에서 JdbcTemplate의 역할을 하는 클래스) -->
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sqlSessionFactory"/>
+	</beans:bean>
 
-	
-	
+	<!-- ======================== tiles를 사용하기 위한 설정 ========================== -->
+	<!-- 1. tiles의 설정파일의 정보를 등록 -->
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/**/*-tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	<!-- 2. ViewResolver가 기본 jsp로 뷰를 생성하지 않고 tiles프레임워크를 통해서 뷰를 생성할 수 있도록 ViewResolver를 등록 -->
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+			<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+			<beans:property name="order" value="1"/>
+	</beans:bean>
 	
 	<!-- ======================어노테이션============================== -->
 	<context:component-scan base-package="kr" />

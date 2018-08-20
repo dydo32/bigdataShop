@@ -1,6 +1,7 @@
 
 DROP TABLE TB_REPLY CASCADE CONSTRAINTS;
 
+
 CREATE TABLE TB_REPLY (
        BOARD_NO             VARCHAR2(12) NOT NULL,
        SEQ                  VARCHAR2(8) NOT NULL,
@@ -16,7 +17,7 @@ CREATE TABLE TB_REPLY (
 DROP TABLE TB_ORDER_PRODUCT CASCADE CONSTRAINTS;
 
 CREATE TABLE TB_ORDER_PRODUCT (
-       ORD_NO               VARCHAR2(12) NOT NULL,
+       ORD_NO               VARCHAR2(20) NOT NULL,
        PRD_NO               VARCHAR2(12) NOT NULL,
        QTY                  NUMBER(8) NULL,
        PRIMARY KEY (ORD_NO, PRD_NO)
@@ -38,7 +39,7 @@ CREATE TABLE TB_PAYMENT (
 DROP TABLE TB_ORDER CASCADE CONSTRAINTS;
 
 CREATE TABLE TB_ORDER (
-       ORD_NO               VARCHAR2(12) NOT NULL,
+       ORD_NO               VARCHAR2(20) NOT NULL,
        MEM_ID               VARCHAR2(20) NOT NULL,
        ORD_AMT              NUMBER(8) NULL,
        RCVR_NM              VARCHAR2(50) NULL,
@@ -76,7 +77,7 @@ CREATE TABLE TB_PRODUCT (
         prd_no varchar2(20) ,
         mem_id varchar2(20) , 
         pro_comment varchar2(60),
-        writedate date)
+        writedate date);
         
         
 DROP TABLE board CASCADE CONSTRAINTS;
@@ -95,7 +96,7 @@ CREATE TABLE board (
 create table board_file(
 	board_no varchar2(12),
 	file_name varchar2(30)	
-)
+);
 
 
 DROP TABLE TB_MEM CASCADE CONSTRAINTS;
@@ -166,11 +167,7 @@ CREATE TABLE TB_DLV_CORP (
        REG_DTM              VARCHAR2(14) NULL,
        PRIMARY KEY (DLV_CORP_NO)
 );
- create table pro_comment(
-        prd_no varchar2(20) ,
-        mem_id varchar2(20) , 
-        pro_comment varchar2(60),
-        writedate date)
+
 
 
 

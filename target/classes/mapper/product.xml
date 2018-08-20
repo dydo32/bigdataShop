@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kitri.product">
+	<select id="newprd" resultType="product">
+		select * from (select TB_PRODUCT.*, rank() over(order by reg_dtm desc) as myrank
+		from TB_PRODUCT) rank_table
+		<![CDATA[where myrank<=3]]>
+	</select>
+	
+	<select id="hitprd" resultType="product">
+		select p.*, sort_table.sumqt
+		from TB_PRODUCT p, (select prd_no,sum(qty) sumqt
+					from TB_ORDER_PRODUCT
+					group by prd_no
+					order by sumqt desc) sort_table
+		<![CDATA[where p.prd_no = sort_table.prd_no and rownum<=4]]>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
