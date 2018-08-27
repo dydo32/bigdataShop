@@ -37,13 +37,11 @@ public class ProductController {
 	
 	//상품상세보기
 	@RequestMapping("/product/{category_no}/{prd_no}")
-	public String showProduct(@PathVariable String category_no, @PathVariable String prd_no,Model model) {
+	public String showProduct(@PathVariable String category_no, @PathVariable String prd_no, @CookieValue(value = "cookie", defaultValue = "0") String cookie,Model model) {
 		//System.out.println("상품조회:"+prd_no);
+	
+		System.out.println(cookie);
 		
-		//쿠키에 상품 번호저장
-		Cookie cookie = new Cookie("prd_no", prd_no);
-		cookie.setMaxAge(60*60*24);
-
 		//상품상세정보
 		ProductDTO product = service.read(prd_no);
 		//댓글list

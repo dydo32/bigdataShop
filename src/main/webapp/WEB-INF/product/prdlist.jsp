@@ -20,6 +20,15 @@ session="true" pageEncoding="UTF-8"%>
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("").on("click", function(){
+		alert("test");
+		$.cookie("cookie", ${prd.prd_no });
+		//$.removeCookie("cookie");
+	});
+});  
+</script>	
 <style>
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 .navbar {

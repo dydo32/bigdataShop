@@ -20,11 +20,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <!-- css 추가 -->
 <link rel='stylesheet' id='kboard-comments-skin-default-css' href='/bigdataShop/resources/common/css/cmt/comments.css?ver=4.4.4'
 	type='text/css' media='all' />
-	
 <style>
 A.applink:hover {
 	border: 2px dotted #DCE6F4;
@@ -102,6 +100,85 @@ $(document).ready(function() {
 				$("#pro_comment").html("");
 				$("#cmtlist").empty(prdcmtlist);
 				$("#cmtlist").append(prdcmtlist);
+				deletecmt();
+			}
+		});   
+	});
+});
+function deletecmt(){
+	$(".deletebtn").on("click",function(){
+		//alert("test");
+		 $.ajax({
+				url:"/bigdataShop/product/cmtdelete.do",
+				type:"get",
+				data:{
+					"prd_no" : "${product.prd_no}",
+					"prdcmt_no": $("#cmt_no").val()
+				},
+				success:function(prdcmt){
+					//alert(prdcmt[0].mem_id);
+					prdcmtlist = "";
+					for(i=0; i<prdcmt.length; i++){
+						prdcmtlist = prdcmtlist + "<ul> "
+						+"<li class='kboard-comments-item'> " 
+						+"<div class='comments-list-username'>"+prdcmt[i].mem_id+"</div> "
+						+"<div class='comments-list-create'>"+prdcmt[i].writedate+"</div> "
+						+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
+						+"<div class='comments-list-controller'> "
+						+"<div class='right'> "
+						+"<a type='button' class='deletebtn' href='#'>삭제</a>"
+						+"<input type='hidden' id='cmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
+						+"</div>"
+						+"</div>"
+						+"</li>"
+						+"</ul>";
+						
+					} 
+					//alert("test");
+					$("#cmtcount").html(prdcmt.length);
+					$("#cmtlist").empty(prdcmtlist);
+					$("#cmtlist").append(prdcmtlist);
+					deletecmt();
+				}
+			});   
+	});
+}
+
+/* $(document).ready(function() {
+	$("#insertcmt").on("click",function(){
+		//alert("${product.prd_no}");
+		//alert($("#pro_comment").val());
+		 $.ajax({
+			url:"/bigdataShop/product/cmtinsert.do",
+			type:"get",
+			data:{
+				"prd_no": "${product.prd_no}",
+				"mem_id": "jang",
+				"pro_comment": $("#pro_comment").val()
+			},
+			success:function(prdcmt){
+				//alert(prdcmt[0].mem_id);
+				prdcmtlist = "";
+				for(i=0; i<prdcmt.length; i++){
+					prdcmtlist = prdcmtlist + "<ul> "
+					+"<li class='kboard-comments-item'> " 
+					+"<div class='comments-list-username'>"+prdcmt[i].mem_id+"</div> "
+					+"<div class='comments-list-create'>"+prdcmt[i].writedate+"</div> "
+					+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
+					+"<div class='comments-list-controller'> "
+					+"<div class='right'> "
+					+"<a type='button' class='deletebtn' href='#'>삭제</a>"
+					+"<input type='hidden' id='cmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
+					+"</div>"
+					+"</div>"
+					+"</li>"
+					+"</ul>";
+				} 
+				//alert("test");
+				$("#cmtcount").html(prdcmt.length);
+				$("#pro_comment").html("");
+				$("#cmtlist").empty(prdcmtlist);
+				$("#cmtlist").append(prdcmtlist);
 			}
 		});   
 	});
@@ -141,7 +218,7 @@ $(document).ready(function() {
 			});   
 	});
 });
-			
+ */
 </script>
 </head>
 <body>
