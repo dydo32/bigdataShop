@@ -54,5 +54,15 @@ public class BoardDAOImpl implements BoardDAO {
 	public int filedelete(String board_no) {
 		return sqlSession.update("kr.kitri.bigdataShop.board.filedelete", board_no);
 	}
+
+	@Override
+	public BoardDTO read(String board_no) {
+		return sqlSession.selectOne("kr.kitri.bigdataShop.board.read", board_no);
+	}
+
+	@Override
+	public String fileread(String board_no) {
+		return sqlSession.selectOne("kr.kitri.bigdataShop.board.fileread", board_no);
+	}
 	
 }

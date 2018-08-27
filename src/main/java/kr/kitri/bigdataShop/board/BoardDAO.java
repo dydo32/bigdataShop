@@ -12,4 +12,6 @@ public interface BoardDAO {
 	int fileInsert(ArrayList<String> filelist);
 	int delete(String board_no);
 	int filedelete(String board_no);
+	BoardDTO read(String board_no);
+	String fileread(String board_no);
 }

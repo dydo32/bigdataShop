@@ -51,6 +51,16 @@ public class BoardServiceImpl implements BoardService {
 		int result2 = dao.filedelete(board_no);
 		return result1+result2;
 	}
+
+	@Override
+	public BoardDTO read(String board_no) {
+		return dao.read(board_no);
+	}
+
+	@Override
+	public String fileread(String board_no) {
+		return dao.fileread(board_no);
+	}
 	
 
 }

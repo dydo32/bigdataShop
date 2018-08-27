@@ -21,7 +21,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- css 추가 -->
-<link rel='stylesheet' id='kboard-comments-skin-default-css' href='/bigdataShop/resources/common/css/cmt/comments.css?ver=4.4.4'
+<link rel='stylesheet' href='/bigdataShop/resources/common/css/cmt/comments.css?ver=4.4.4'
 	type='text/css' media='all' />
 <style>
 A.applink:hover {

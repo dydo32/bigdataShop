@@ -11,6 +11,10 @@
 		<put-attribute name="content" 
 		                 value="/WEB-INF/board/boardlist.jsp"/>
 	</definition>
+	<definition name="board/read" extends="mainTemplate">
+		<put-attribute name="content" 
+		                 value="/WEB-INF/board/board_read.jsp"/>
+	</definition>
 </tiles-definitions>
 
 
