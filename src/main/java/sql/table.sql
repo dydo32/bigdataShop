@@ -101,6 +101,7 @@ delete from pro_comment;
 DROP TABLE board CASCADE CONSTRAINTS;
 
 select * from board;
+delete from board;
 CREATE TABLE board (
        BOARD_NO             VARCHAR2(12) NOT NULL,
        id               VARCHAR2(20) NOT NULL,
@@ -113,11 +114,13 @@ CREATE TABLE board (
        PRIMARY KEY (BOARD_NO)
 );
 
+drop table board_file
 select * from BOARD_FILE;
 delete from BOARD_FILE;
 create table board_file(
 	board_no varchar2(12),
-	file_name varchar2(30)	
+	file_name varchar2(30),
+	del_flg VARCHAR2(1) 
 );
 
 insert all 

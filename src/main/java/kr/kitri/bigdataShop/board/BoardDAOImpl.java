@@ -44,6 +44,15 @@ public class BoardDAOImpl implements BoardDAO {
 		map.put("fileName", filelist);
 		return sqlSession.insert("kr.kitri.bigdataShop.board.fileinsert", map);
 	}
-	
+
+	@Override
+	public int delete(String board_no) {
+		return sqlSession.update("kr.kitri.bigdataShop.board.delete", board_no);
+	}
+
+	@Override
+	public int filedelete(String board_no) {
+		return sqlSession.update("kr.kitri.bigdataShop.board.filedelete", board_no);
+	}
 	
 }

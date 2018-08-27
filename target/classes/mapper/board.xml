@@ -10,13 +10,22 @@
 	
 	<insert id="fileinsert" parameterType="Map">
 		insert all 
-		<foreach collection="fileName" item="file">
-			into board_file values(board_seq.currval, #{file})
+		<foreach collection="fileName" item="file"  separator=" ">
+			into board_file values(board_seq.currval, #{file}, '1')
 		</foreach>
 		select * from dual
 	</insert>
 	
 	<select id="boardlist" resultType="board">
-		select * from board
+		select * from board where del_flg='1'
 	</select>
+	
+	<update id="delete" parameterType="String">
+		update board set del_flg='0' where board_no=#{board_no}
+	</update>
+	
+	<update id="filedelete" parameterType="String">
+		update from board_file set del_flg='0' where board_no=#{board_no}
+	</update>
+	
 </mapper>
