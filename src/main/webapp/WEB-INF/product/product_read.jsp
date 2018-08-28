@@ -54,13 +54,13 @@ A.info:hover {
 
 #sky {
 	position: absolute;
-	width: 100px;
-	left: 50%;
+	width: 120px;
+	right: 5%;
 	top: 150px;
 	margin-left: 400px;
 	background: #ffffff;
 	border: solid #ccc;
-	height: 200px;
+	height: 700px;
 	padding: 30px
 }
 </style>
@@ -293,9 +293,12 @@ $(document).ready(function() {
 			src="/bigdataShop/resources/images/product/${product.img_org_file_nm }"
 			alt="썸이미지" />
 		<div id="sky">
-			<img
-				src="/bigdataShop/resources/images/product/${product.img_org_file_nm }"
-				alt="썸이미지" width="50px" height="50px" />
+		<!-- 최근본상품list -->
+		<c:forEach var="ck" items="${cookielist }">
+			 <img src="/bigdataShop/resources/images/product/${ck.img_org_file_nm }"
+				alt="썸이미지" width="60px" height="60px" /> 
+			 <div style="font-size:9pt;">${ck.prd_nm}</div>
+		</c:forEach>
 		</div>
 	</div>
 
