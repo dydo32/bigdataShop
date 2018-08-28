@@ -28,4 +28,12 @@
 		update from board_file set del_flg='0' where board_no=#{board_no}
 	</update>
 	
+	<select id="read" parameterType="String" resultType="board">
+		select * from board where board_no=#{board_no}
+	</select>
+	
+	<select id="fileread" parameterType="String" resultType="String">
+		select file_name from board_file where board_no=#{board_no}
+	</select>
+	
 </mapper>

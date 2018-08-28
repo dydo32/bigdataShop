@@ -33,7 +33,7 @@
 			<c:forEach var="board" items="${boardlist }">
 				<tr>
 					<td>${board.board_no}</td>
-					<td><a href="#">${board.title}</a></td>
+					<td><a href="/bigdataShop/board/read.do?board_no=${board.board_no}">${board.title}</a></td>
 					<td>${board.id}</td>
 					<td>${board.reg_dtm}</td>
 					<td>${board.hit }</td>
