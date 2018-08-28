@@ -36,8 +36,8 @@ public class ProductController {
 	}
 	
 	//상품상세보기
-	@RequestMapping("/product/{category_no}/{prd_no}")
-	public String showProduct(@PathVariable String category_no, @PathVariable String prd_no, @CookieValue(value="prdNoCookie", required=false) Cookie prdNoCookie, HttpServletResponse res,Model model) {
+	@RequestMapping("/product/read.do")
+	public String showProduct(String category_no,String prd_no, @CookieValue(value="prdNoCookie", required=false) Cookie prdNoCookie, HttpServletResponse res,Model model) {
 		//System.out.println("상품조회:"+prd_no);
 		Cookie cookie = null;
 		if(prdNoCookie==null) {
@@ -45,13 +45,11 @@ public class ProductController {
 			System.out.println("최초작업: "+prd_no);
 		}else {
 			String value = prdNoCookie.getValue()+","+prd_no;
-			/*String[] str = value.split(",");
-			if(str.length>3) {
-				value = str[1]+","+str[2]+","+str[3];
-				System.out.println("쿠키 저장값: "+value);
-			}else {
-				System.out.println("쿠키 저장값: "+value);
-			}*/
+			String[] str = value.split(",");
+			if(str.length>5) {
+				value = str[1]+","+str[2]+","+str[3]+","+str[4]+","+str[5];
+			}
+			//같은거 들어갈때
 			System.out.println("쿠키 저장값: "+value);
 			cookie = new Cookie("prdNoCookie", value);
 		}

@@ -99,7 +99,7 @@ footer {
 			<ul class="goodsAreaG">
 				<!-- *상품 있을경우 -->
 				<c:forEach var="prd" items="${prdlist }">
-						<li><a href="/bigdataShop/product/${prd.category_no }/${prd.prd_no }" class="goodsLink" 
+						<li><a href="/bigdataShop/product/read.do?category_no=${prd.category_no }&prd_no=${prd.prd_no}" class="goodsLink" 
 						onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
 						<img src="/bigdataShop/resources/images/product/${prd.img_gen_file_nm }" alt="상품"
 						class="photo" /><br /> <span class="proPrice1">${prd.prd_nm }</span>
