@@ -1,14 +1,15 @@
 select * from tb_product;
+select * from tb_mem;
+select * from tb_order;
+select * from tb_order_product;
+
 
 select * 
 from TB_PRODUCT 
 where CATEGORY_NO = (select CATEGORY_NO 
 					from TB_CATEGORY 
 					where CATEGORY_NM = ?);
-
 					
-
-
 
 DROP TABLE TB_REPLY CASCADE CONSTRAINTS;
 
