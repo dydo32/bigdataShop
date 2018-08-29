@@ -23,27 +23,28 @@
 				<div id="kboard-thumbnail-document">
 					<div class="kboard-document-wrap">
 						<div class="kboard-title">
-							<h1>타이틀</h1>
+							<h1>${board.title }</h1>
 						</div>
 						<div class="kboard-detail">
 							<div class="detail-attr detail-writer">
 								<div class="detail-name">작성자</div>
-								<div class="detail-value">작성자아이디</div>
+								<div class="detail-value">${board.id }</div>
 							</div>
 							<div class="detail-attr detail-date">
 								<div class="detail-name">작성일</div>
-								<div class="detail-value">작성일</div>
+								<div class="detail-value">${board.reg_dtm }</div>
 							</div>
 							<div class="detail-attr detail-view">
 								<div class="detail-name">조회</div>
-								<div class="detail-value">조회수</div>
+								<div class="detail-value">${board.hit }</div>
 							</div>
 						</div>
 						<div class="kboard-content">
 							<div class="content-view">
 								<p style="text-align: center;">
-									<img src="/single/pages/free/upload/이미지" /><br />
-									내용
+									<br/>
+									<a href="/bigdataShop/board/download.do?fileName=${fileName.get(0)}&path=${path}">${fileName.get(0)}</a> 
+									${board.text }
 								</p>
 							</div>
 						</div>

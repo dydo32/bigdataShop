@@ -11,5 +11,5 @@ public interface BoardService {
 	int txinsert(BoardDTO data,ArrayList<String> filelist) ;
 	int txdelete(String board_no);
 	BoardDTO read(String board_no);
-	String fileread(String board_no);
+	List<String> fileread(String board_no);
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,8 +65,12 @@ public class BoardController {
 	@RequestMapping("/board/read.do")
 	public String read(String board_no, Model model) {
 		BoardDTO board = service.read(board_no);
-		String filename = service.fileread(board_no);
+		List<String> fileName = service.fileread(board_no);
+		String path="C:/IT/work/stswork/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/bigdataShop/WEB-INF/upload";
+		model.addAttribute("fileName",fileName);
+		model.addAttribute("path",path);
 		model.addAttribute("board", board);
 		return "board/read";
 	}
+
 }
