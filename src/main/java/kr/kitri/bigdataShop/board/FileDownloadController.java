@@ -12,14 +12,15 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class FileDownloadLogic implements ApplicationContextAware{
-	 private WebApplicationContext context = null;
+public class FileDownloadController implements ApplicationContextAware{
+		private WebApplicationContext context = null;
      
 	    @RequestMapping("/board/download.do")
 	    public ModelAndView download(@RequestParam("path")String path,
 	                                  @RequestParam("fileName")String fileName){
 	        String fullPath = path + "\\" + fileName;
 	        File file = new File(fullPath);
+	        //ModelAndView(String viewName, String modelName, Object modelObject) 
 	        return new ModelAndView("download", "downloadFile", file);
 	    }
 	 
