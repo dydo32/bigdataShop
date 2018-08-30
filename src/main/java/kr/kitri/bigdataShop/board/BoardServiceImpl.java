@@ -58,7 +58,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public String fileread(String board_no) {
+	public List<String> fileread(String board_no) {
 		return dao.fileread(board_no);
 	}
 	

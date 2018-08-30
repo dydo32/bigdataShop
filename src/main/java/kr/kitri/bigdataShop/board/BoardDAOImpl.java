@@ -61,8 +61,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public String fileread(String board_no) {
-		return sqlSession.selectOne("kr.kitri.bigdataShop.board.fileread", board_no);
+	public List<String> fileread(String board_no) {
+		return sqlSession.selectList("kr.kitri.bigdataShop.board.fileread", board_no);
 	}
 	
 }
