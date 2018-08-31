@@ -93,7 +93,6 @@
 		class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<beans:property name="order" value="0" />
 	</beans:bean>
-	<beans:bean id="download" class="kr.kitri.bigdataShop.board.downloadView"/>
 	
 	<!-- ======================== 선언적 트랜잭션 처리하기 ======================== -->
 	<beans:bean id="transactionManager"

@@ -66,7 +66,7 @@ public class BoardController {
 	public String read(String board_no, Model model) {
 		BoardDTO board = service.read(board_no);
 		List<String> fileName = service.fileread(board_no);
-		String path="C:/IT/work/stswork/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/bigdataShop/WEB-INF/upload";
+		String path="/WEB-INF/upload";
 		model.addAttribute("fileName",fileName);
 		model.addAttribute("path",path);
 		model.addAttribute("board", board);

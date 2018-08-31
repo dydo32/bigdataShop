@@ -43,7 +43,11 @@
 							<div class="content-view">
 								<p style="text-align: center;">
 									<br/>
-									<a href="/bigdataShop/board/download.do?fileName=${fileName.get(0)}&path=${path}">${fileName.get(0)}</a> 
+									<c:forEach var="filename" items="${fileName }">
+										<div>
+										<a href="/bigdataShop/board/download.do?fileName=${filename}&path=${path}">${filename}</a></div> 
+									</c:forEach>
+									<br/>
 									${board.text }
 								</p>
 							</div>

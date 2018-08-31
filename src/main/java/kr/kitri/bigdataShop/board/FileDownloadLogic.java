@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
-public class downloadView extends AbstractView {
+public class FileDownloadLogic extends AbstractView {
 	public void Download() {
 		setContentType("application/download; utf-8");
 	}
@@ -22,8 +22,9 @@ public class downloadView extends AbstractView {
 		// TODO Auto-generated method stub
 
 		File file = (File) model.get("downloadFile");
-		System.out.println("DownloadView --> file.getPath() : " + file.getPath());
-		System.out.println("DownloadView --> file.getName() : " + file.getName());
+		System.out.println(file);
+		System.out.println("FileDownloadLogic --> file.getPath() : " + file.getPath());
+		System.out.println("FileDownloadLogic --> file.getName() : " + file.getName());
 
 		response.setContentType(getContentType());
 		response.setContentLength((int) file.length());

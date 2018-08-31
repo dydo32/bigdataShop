@@ -13,7 +13,7 @@ public class FIleUploadLogic {
 	FileOutputStream fos;
 
 	public void upload(MultipartFile[] file, String path, ArrayList<String> fileName) {
-
+		System.out.println("upload:"+path+","+fileName);
 		try {
 			for (int i = 0; i < fileName.size(); i++) {
 				byte[] data = file[i].getBytes();
