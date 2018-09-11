@@ -23,4 +23,7 @@
 	<definition name="admin/index" extends="adminTemplate">
 	</definition>
 	
+	<definition name="comment/result" extends="adminTemplate">
+		<put-attribute name="content" value="/WEB-INF/admin/commentResult.jsp"/>
+	</definition>
 </tiles-definitions>

@@ -26,5 +26,9 @@ public class ProductCommentDAOImpl implements ProductCommentDAO {
 		return sqlSession.delete("kr.kitri.bigdataShop.productcomment.delete", prdcmt_no);
 	}
 	
+	@Override
+	public List<CommentResultDTO> commentResult() {
+		return  sqlSession.selectList("kr.kitri.bigdataShop.productcomment.comment_result");
+	}	
 	
 }

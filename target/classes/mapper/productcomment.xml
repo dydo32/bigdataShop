@@ -16,6 +16,10 @@
 		select * from pro_comment where prd_no=#{prd_no}
 		order by prdcmt_no
 	</select> 
+	
+	<select parameterType="String" id="comment_result" resultType="commentresult">
+		select * from comment_resultorder by to_number(count) desc 
+	</select>
 </mapper>
 
 

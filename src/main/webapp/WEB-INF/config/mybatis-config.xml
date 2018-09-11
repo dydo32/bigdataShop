@@ -7,10 +7,11 @@
 		<typeAlias type="kr.kitri.bigdataShop.product.ProductDTO" alias="product"/>
 		<typeAlias type="kr.kitri.bigdataShop.product.comment.ProductCommentDTO" alias="prdcmt"/>
 		<typeAlias type="kr.kitri.bigdataShop.board.BoardDTO" alias="board"/>
+		<typeAlias alias="commentresult" type="kr.kitri.bigdataShop.product.comment.CommentResultDTO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="/mapper/product.xml"/>
-		<mapper resource="/mapper/comment.xml"/>
+		<mapper resource="/mapper/productcomment.xml"/>
 		<mapper resource="/mapper/board.xml"/>
 	</mappers>
 </configuration>

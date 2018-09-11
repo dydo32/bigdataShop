@@ -29,5 +29,9 @@ public class ProductCommentServiceImpl implements ProductCommentService {
 		return dao.prdcmtdelete(prdcmt_no);
 	}
 	
+	@Override
+	public List<CommentResultDTO> commentResult() {
+		return dao.commentResult();
+	}
 
 }
