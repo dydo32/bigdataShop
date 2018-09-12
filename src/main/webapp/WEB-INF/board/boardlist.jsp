@@ -37,7 +37,7 @@
 					<td>${board.id}</td>
 					<td>${board.reg_dtm}</td>
 					<td>${board.hit }</td>
-					<td><a href="/bigdataShop/board/delete.do">삭제</a></td>
+					<td><a href="/bigdataShop/board/delete.do?board_no=${board.board_no }">삭제</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

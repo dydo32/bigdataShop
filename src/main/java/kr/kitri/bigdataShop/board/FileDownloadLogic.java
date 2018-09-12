@@ -1,4 +1,4 @@
-package kr.kitri.bigdataShop.board;
+/*package kr.kitri.bigdataShop.board;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -59,3 +59,4 @@ public class FileDownloadLogic extends AbstractView {
 		out.flush();
 	}
 }
+*/

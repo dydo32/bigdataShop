@@ -56,10 +56,11 @@ public class BoardController {
 	}
 
 	@RequestMapping("/board/delete.do")
-	public String delete(String board_no) {
+	public String delete(String board_no,Model model) {
+		System.out.println(board_no);
 		int result = service.txdelete(board_no);
 		System.out.println(result + "개 게시판 삭제 성공");
-		return "board/list";
+		return "redirect:/board/list.do";
 	}
 
 	@RequestMapping("/board/read.do")

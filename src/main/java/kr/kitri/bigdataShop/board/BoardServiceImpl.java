@@ -47,9 +47,14 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public int txdelete(String board_no) {
-		int result1 = dao.delete(board_no);
-		int result2 = dao.filedelete(board_no);
-		return result1+result2;
+		int result = 0;
+		if(dao.fileread(board_no).size()>0) {
+			result = dao.delete(board_no);
+			dao.filedelete(board_no);
+		}else {
+			result = dao.delete(board_no);
+		}
+		return result;
 	}
 
 	@Override

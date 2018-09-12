@@ -1,4 +1,4 @@
-package kr.kitri.bigdataShop.board;
+/*package kr.kitri.bigdataShop.board;
 
 import java.io.File;
 
@@ -31,3 +31,4 @@ public class FileDownloadController implements ApplicationContextAware {
 		this.context = (WebApplicationContext) arg0;
 	}
 }
+*/
