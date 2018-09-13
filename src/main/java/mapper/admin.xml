@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kitri.bigdataShop.admin">
+	<select parameterType="String" id="log_result" resultType="logresult">
+		select * from logResult order by to_number(count) desc
+	</select>
+</mapper>
+
+
+
+
+
