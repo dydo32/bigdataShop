@@ -26,30 +26,17 @@ $(document).ready(function(){
 		data : {
 			labels : iplist,
 			datasets : [{
-			 	backgroundColor : ["#2ecc71","#3498db"],
+			 	backgroundColor : ["#99ffff","#ffff99"],
 				hoverBackgroundColor : ["#A6A6A6", "#D1B2FF"], 
 				data :countlist
 			}]
 		},
 		options : {responsive:false}
 	});
-	
-
 });
 
 
-	/* $(document).ready(function() {
-		var word_list = [];
-		//resultList
-		<c:forEach var="result" items="${tableList2}">
-			var value = new Object();
-			value.text = "${result.content}"
-			value.weight = "${result.count}"
-			word_list.push(value);
-		</c:forEach>
-		//db에서 조회한 결과 wordcloud가 제작될 수 있도록 작업
-		$("#comments").jQCloud(word_list);
-	}) */
+
 </script>
 </head>
 <body>
